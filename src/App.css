@@ -1,0 +1,30 @@
+/* Базовые стили */
+
+html {
+  min-height: 100vh;
+  background: #ddd;
+  padding: 1rem;
+}
+
+body {
+  margin-top: -18px !important;
+  height: 100vh !important;
+}
+
+.column,
+.row {
+  margin: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.grid {
+  margin: 0 !important;
+}
+
+.app {
+  margin-top: -1rem !important;
+  height: 100vh;
+}
