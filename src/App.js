@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Segment } from "semantic-ui-react";
+import { Grid } from "semantic-ui-react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -33,12 +33,24 @@ const App = () => {
 
           <Router>
             <Switch>
-              <Route exact path="/requests" component={RequestScreen} />
-              <Route path="/settings" component={SettingScreen} />
-              <Route exact path="/employees" component={EmployeeScreen} />
-              <Route path="/customers" component={CustomerScreen} />
-              <Route exact path="/actives" component={ActiveScreen} />
-              <Route path="/knowledges" component={KnowledgeScreen} />
+              <Route path="/requests">
+                <RequestScreen />
+              </Route>
+              <Route path="/settings">
+                <SettingScreen />
+              </Route>
+              <Route path="/employees">
+                <EmployeeScreen />
+              </Route>
+              <Route path="/customers">
+                <CustomerScreen />
+              </Route>
+              <Route path="/actives">
+                <ActiveScreen />
+              </Route>
+              <Route path="/knowledges">
+                <KnowledgeScreen />
+              </Route>
               <Redirect to="/requests" />
             </Switch>
           </Router>

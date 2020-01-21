@@ -2,24 +2,30 @@ import React from "react";
 
 import { Grid } from "semantic-ui-react";
 
-import FormPanel from "../components/FormPanel/FormPanel";
+import FormCreate from "../components/FormCreate/FormCreate";
+import FormUpdate from "../components/FormUpdate/FormUpdate";
 import RequestsPanel from "../components/RequestsPanel/RequestsPanel";
-import StatusPanel from "../components/StatusPanel/StatusPanel";
+
+import { Route, Switch } from "react-router-dom";
 
 const RequestScreen = () => {
   return (
     <Grid.Row>
-      <Grid.Column width={6}>
-        <RequestsPanel />
-      </Grid.Column>
+      <RequestsPanel />
 
-      <Grid.Column width={4}>
-        <StatusPanel />
-      </Grid.Column>
+      <Switch>
+        <Route exact path="/requests/create">
+          <Grid.Column width={10}>
+            <FormCreate />
+          </Grid.Column>
+        </Route>
 
-      <Grid.Column width={6}>
-        <FormPanel />
-      </Grid.Column>
+        <Route path="/requests/update">
+          <Grid.Column width={10}>
+            <FormUpdate />
+          </Grid.Column>
+        </Route>
+      </Switch>
     </Grid.Row>
   );
 };

@@ -20,8 +20,7 @@ const SidePanel = () => {
       </Menu.Header>
 
       <Menu.Item
-        onClick={() => {}}
-        name=""
+        href='/knowledges'
         // active={channel.id === this.state.activeChannel}
       >
         <Image
@@ -33,7 +32,7 @@ const SidePanel = () => {
       </Menu.Item>
 
       <Menu.Item
-        onClick={() => {}}
+        href='/requests'
         name=""
         // active={channel.id === this.state.activeChannel}
       >
@@ -46,7 +45,7 @@ const SidePanel = () => {
       </Menu.Item>
 
       <Menu.Item
-        onClick={() => {}}
+        href='/employees'
         name=""
         // active={channel.id === this.state.activeChannel}
       >
@@ -59,7 +58,7 @@ const SidePanel = () => {
       </Menu.Item>
 
       <Menu.Item
-        onClick={() => {}}
+        href='/customers'
         name=""
         // active={channel.id === this.state.activeChannel}
       >
@@ -72,7 +71,7 @@ const SidePanel = () => {
       </Menu.Item>
 
       <Menu.Item
-        onClick={() => {}}
+        href='/actives'
         name=""
         // active={channel.id === this.state.activeChannel}
       >
@@ -85,7 +84,7 @@ const SidePanel = () => {
       </Menu.Item>
 
       <Menu.Item
-        onClick={() => {}}
+        href='/settings'
         name=""
         // active={channel.id === this.state.activeChannel}
       >
