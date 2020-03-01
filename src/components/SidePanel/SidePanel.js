@@ -1,8 +1,6 @@
 import React from "react";
 import { Menu, Image } from "semantic-ui-react";
 
-import "./SidePanel.css";
-
 const SidePanel = () => {
   return (
     <Menu
@@ -20,7 +18,8 @@ const SidePanel = () => {
       </Menu.Header>
 
       <Menu.Item
-        href='/knowledges'
+        href="/knowledges"
+        onClick={() => console.log("Знания")}
         // active={channel.id === this.state.activeChannel}
       >
         <Image
@@ -32,7 +31,7 @@ const SidePanel = () => {
       </Menu.Item>
 
       <Menu.Item
-        href='/requests'
+        href="/requests"
         name=""
         // active={channel.id === this.state.activeChannel}
       >
@@ -45,7 +44,7 @@ const SidePanel = () => {
       </Menu.Item>
 
       <Menu.Item
-        href='/employees'
+        href="/employees"
         name=""
         // active={channel.id === this.state.activeChannel}
       >
@@ -58,7 +57,7 @@ const SidePanel = () => {
       </Menu.Item>
 
       <Menu.Item
-        href='/customers'
+        href="/customers"
         name=""
         // active={channel.id === this.state.activeChannel}
       >
@@ -71,7 +70,7 @@ const SidePanel = () => {
       </Menu.Item>
 
       <Menu.Item
-        href='/actives'
+        href="/actives"
         name=""
         // active={channel.id === this.state.activeChannel}
       >
@@ -84,7 +83,7 @@ const SidePanel = () => {
       </Menu.Item>
 
       <Menu.Item
-        href='/settings'
+        href="/settings"
         name=""
         // active={channel.id === this.state.activeChannel}
       >

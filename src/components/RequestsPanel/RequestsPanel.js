@@ -1,20 +1,58 @@
 import React from "react";
-import { Grid } from "semantic-ui-react";
+import { Grid, Table } from "semantic-ui-react";
 
-const RequestsPanel = () => {
-  console.log(window.location.pathname);
+const RequestsPanel = requestList => {
+  console.log(requestList);
+
+  const ShowList = ({ requestList }) => {
+    return requestList.map((listItem, _index) => (
+      <Table.Row key={listItem.id} style={{ }}>
+        <Table.Cell>{listItem.id}</Table.Cell>
+        <Table.Cell>{listItem.name}</Table.Cell>
+        {window.location.pathname === "/requests" ? (
+          <React.Fragment>
+            <Table.Cell>{listItem.statusName}</Table.Cell>
+            <Table.Cell>{listItem.executorName}</Table.Cell>
+          </React.Fragment>
+        ) : null}
+      </Table.Row>
+    ));
+  };
+
   return (
-    <React.Fragment>
-      <Grid.Column width={6}>
-        <div style={{ backgroundColor: "red" }}>Заявки </div>
-      </Grid.Column>
+    <Table columns={16} style={{ width: "100%" }}>
+      <Table.Header>
+        <Table.Row style={{ display: "flex" }}>
+          <Table.HeaderCell
+            width={window.location.pathname === "/requests" ? 4 : 7}
+          >
+            ID
+          </Table.HeaderCell>
+          <Table.HeaderCell
+            width={window.location.pathname === "/requests" ? 4 : 7}
+          >
+            Название
+          </Table.HeaderCell>
+          {window.location.pathname === "/requests" ? (
+            <React.Fragment>
+              <Table.HeaderCell width={4}>Статус</Table.HeaderCell>
+              <Table.HeaderCell width={4}>Исполнитель</Table.HeaderCell>
+            </React.Fragment>
+          ) : null}
+        </Table.Row>
+      </Table.Header>
 
-      {window.location.pathname === "/requests" ? (
-        <Grid.Column width={3}>
-          <div style={{ backgroundColor: "blue" }}>Статус </div>
-        </Grid.Column>
-      ) : null}
-    </React.Fragment>
+      <Table.Body
+        style={{
+          height: "90vh",
+          width: "100%",
+          overflowY: "auto",
+          display: "block"
+        }}
+      >
+        {ShowList(requestList)}
+      </Table.Body>
+    </Table>
   );
 };
 

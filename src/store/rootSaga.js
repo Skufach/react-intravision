@@ -1,8 +1,8 @@
 import { all, fork } from "redux-saga/effects";
 
-import { requestScreenWatcher } from "./requestScreen/sagas";
+import { requestsScreenWatcher } from "./requestsScreen/sagas";
 
-const watchers = [requestScreenWatcher];
+const watchers = [requestsScreenWatcher];
 
 export function* rootSaga() {
   yield all(watchers.map(fork));
