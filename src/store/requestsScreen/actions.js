@@ -9,14 +9,3 @@ export const success = createAction(
 export const failure = createAction("requestScreen->FAILURE", ({ error }) => ({
   error
 }));
-
-/*Все действия 
-1) Получение текучего списка заявок 
-
-В самой форме
-1)  Получение списка статусов 
-2) Запрос на создание
-3) запрос на редактирование 
-4) 
-
-*/

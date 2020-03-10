@@ -1,5 +1,4 @@
 import { connect } from "react-redux";
-// import { reduxForm } from "redux-form";
 
 import RequestScreen from "./RequestScreen";
 
@@ -8,22 +7,15 @@ import {
   getLoading
 } from "../../store/requestsScreen/selectors";
 
+import { getLocation } from "../../store/router/selectors";
+
 const mapStateToProps = state => ({
   requestList: getRequestList(state),
-  loading: getLoading(state)
+  loading: getLoading(state),
+  location: getLocation(state)
 });
 
 export const RequestScreenContainer = connect(
   mapStateToProps,
   {}
-)(
-  //   reduxForm({
-  //     form: formConstants.signInForm.name,
-  //     asyncBlurFields: [formConstants.signInForm.fields.login],
-  //     initialValues: { login: '' },
-  //     destroyOnUnmount: false,
-  //     onSubmit: SignInSubmit,
-  //     validate: SignInSubmit,
-  //   })
-  RequestScreen
-);
+)(RequestScreen);

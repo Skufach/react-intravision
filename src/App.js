@@ -17,8 +17,9 @@ import EmployeeScreen from "./screens/EmployeeScreen";
 import CustomerScreen from "./screens/CustomerScreen";
 import { RequestScreenContainer } from "./screens/RequestScreen/RequestScreenContainer";
 import KnowledgeScreen from "./screens/KnowledgeScreen";
+import { ConnectedRouter } from "connected-react-router";
 
-import { configureStore } from "./store/configureStore";
+import { configureStore, history } from "./store/configureStore";
 import "./App.css";
 
 const { store } = configureStore();
@@ -26,42 +27,44 @@ const { store } = configureStore();
 const App = () => {
   return (
     <Provider store={store}>
-      <Grid columns={16} className="app" stretched>
-        <Grid.Column width={2} >
-          <SidePanel />
-        </Grid.Column>
-        <Grid.Column width={14}>
-          <Grid>
-            <Grid.Column width={16}>
-              <SearchPanel />
-            </Grid.Column>
+      <ConnectedRouter history={history}>
+        <Grid columns={16} className="app">
+          <Grid.Column width={2} stretched>
+            <SidePanel />
+          </Grid.Column>
+          <Grid.Column width={14}>
+            <Grid>
+              <Grid.Column width={16}>
+                <SearchPanel />
+              </Grid.Column>
 
-            <Router>
-              <Switch>
-                <Route path="/requests">
-                  <RequestScreenContainer />
-                </Route>
-                <Route path="/settings">
-                  <SettingScreen />
-                </Route>
-                <Route path="/employees">
-                  <EmployeeScreen />
-                </Route>
-                <Route path="/customers">
-                  <CustomerScreen />
-                </Route>
-                <Route path="/actives">
-                  <ActiveScreen />
-                </Route>
-                <Route path="/knowledges">
-                  <KnowledgeScreen />
-                </Route>
-                <Redirect to="/requests" />
-              </Switch>
-            </Router>
-          </Grid>
-        </Grid.Column>
-      </Grid>
+              <Router>
+                <Switch>
+                  <Route path="/requests">
+                    <RequestScreenContainer />
+                  </Route>
+                  <Route path="/settings">
+                    <SettingScreen />
+                  </Route>
+                  <Route path="/employees">
+                    <EmployeeScreen />
+                  </Route>
+                  <Route path="/customers">
+                    <CustomerScreen />
+                  </Route>
+                  <Route path="/actives">
+                    <ActiveScreen />
+                  </Route>
+                  <Route path="/knowledges">
+                    <KnowledgeScreen />
+                  </Route>
+                  <Redirect to="/requests" />
+                </Switch>
+              </Router>
+            </Grid>
+          </Grid.Column>
+        </Grid>
+      </ConnectedRouter>
     </Provider>
   );
 };

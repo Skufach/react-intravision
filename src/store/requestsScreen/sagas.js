@@ -1,4 +1,4 @@
-import { takeEvery, put, call } from "redux-saga/effects";
+import { put, call, takeEvery } from "redux-saga/effects";
 import * as actions from "./actions";
 
 function* requestsScreenWorker() {

@@ -1,12 +1,10 @@
 import React from "react";
-import { Grid, Table } from "semantic-ui-react";
+import { Table } from "semantic-ui-react";
 
 const RequestsPanel = requestList => {
-  console.log(requestList);
-
   const ShowList = ({ requestList }) => {
     return requestList.map((listItem, _index) => (
-      <Table.Row key={listItem.id} style={{ }}>
+      <Table.Row key={listItem.id}>
         <Table.Cell>{listItem.id}</Table.Cell>
         <Table.Cell>{listItem.name}</Table.Cell>
         {window.location.pathname === "/requests" ? (
@@ -45,6 +43,7 @@ const RequestsPanel = requestList => {
       <Table.Body
         style={{
           height: "90vh",
+          maxHeight: "100%",
           width: "100%",
           overflowY: "auto",
           display: "block"
