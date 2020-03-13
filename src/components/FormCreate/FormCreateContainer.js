@@ -3,17 +3,9 @@ import { reduxForm } from "redux-form";
 
 import FormCreate from "./FormCreate";
 
-// import {
-//   getRequestList,
-//   getLoading
-// } from "../../store/requestsScreen/selectors";
-
 import { trigger as formCreateTrigger } from "../../store/forms/createForm/actions";
 
-const mapStateToProps = state => ({
-  //   requestList: getRequestList(state),
-  //   loading: getLoading(state)
-});
+const mapStateToProps = state => ({});
 
 const FormCreateContainer = connect(mapStateToProps, { formCreateTrigger })(
   reduxForm({

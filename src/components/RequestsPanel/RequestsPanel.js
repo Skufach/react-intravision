@@ -1,10 +1,14 @@
 import React from "react";
 import { Table } from "semantic-ui-react";
 
-const RequestsPanel = requestList => {
-  const ShowList = ({ requestList }) => {
+const RequestsPanel = ({ requestList, updateFormLoading }) => {
+  const handleClick = id => {
+    updateFormLoading(id);
+  };
+
+  const ShowList = requestList => {
     return requestList.map((listItem, _index) => (
-      <Table.Row key={listItem.id}>
+      <Table.Row key={listItem.id} onClick={() => handleClick(listItem.id)}>
         <Table.Cell>{listItem.id}</Table.Cell>
         <Table.Cell>{listItem.name}</Table.Cell>
         {window.location.pathname === "/requests" ? (

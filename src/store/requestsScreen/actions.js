@@ -9,3 +9,7 @@ export const success = createAction(
 export const failure = createAction("requestScreen->FAILURE", ({ error }) => ({
   error
 }));
+
+export const item = createAction("requestScreen->ITEM", ({ updateItem }) => ({
+  updateItem
+}));

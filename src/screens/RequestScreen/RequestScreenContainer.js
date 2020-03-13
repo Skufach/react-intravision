@@ -8,6 +8,7 @@ import {
 } from "../../store/requestsScreen/selectors";
 
 import { getLocation } from "../../store/router/selectors";
+import { trigger as updateFormLoadingTrigger } from "../../store/router/updateFormLoading/actions";
 
 const mapStateToProps = state => ({
   requestList: getRequestList(state),
@@ -15,7 +16,6 @@ const mapStateToProps = state => ({
   location: getLocation(state)
 });
 
-export const RequestScreenContainer = connect(
-  mapStateToProps,
-  {}
-)(RequestScreen);
+export const RequestScreenContainer = connect(mapStateToProps, {
+  updateFormLoadingTrigger
+})(RequestScreen);

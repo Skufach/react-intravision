@@ -4,7 +4,8 @@ import * as actions from "./actions";
 const initialState = {
   loading: false,
   requestList: [],
-  error: false
+  error: false,
+  updateItem: {}
 };
 
 export const reducer = handleActions(
@@ -15,6 +16,10 @@ export const reducer = handleActions(
       ...action.payload
     }),
     [actions.failure]: (state, action) => ({
+      ...state,
+      ...action.payload
+    }),
+    [actions.item]: (state, action) => ({
       ...state,
       ...action.payload
     })

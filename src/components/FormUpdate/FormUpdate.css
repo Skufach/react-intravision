@@ -1,0 +1,19 @@
+.form-div {
+  width: 90%;
+}
+
+.flex-container {
+  display: flex;
+  height: 100%;
+  background: #ecf3f7;
+}
+
+.block-left {
+  display: block;
+  flex-grow: 6;
+  border-right: 1px solid black;
+}
+
+.block-right {
+  flex-grow: 3;
+}

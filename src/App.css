@@ -28,3 +28,7 @@ body {
   margin-top: -1rem !important;
   height: 100vh;
 }
+
+.field {
+  margin: 1rem !important;
+}

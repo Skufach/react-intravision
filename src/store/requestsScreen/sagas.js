@@ -3,6 +3,7 @@ import * as actions from "./actions";
 
 function* requestsScreenWorker() {
   console.log("Watcher start");
+
   yield put(actions.start());
 
   try {
