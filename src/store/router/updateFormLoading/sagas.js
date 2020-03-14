@@ -1,4 +1,4 @@
-import { takeEvery, put, call, select } from "redux-saga/effects";
+import { takeEvery, put, call } from "redux-saga/effects";
 import { replace } from "connected-react-router";
 
 import * as actions from "./actions";
@@ -21,7 +21,7 @@ function* updateFormLoadingWorker(action) {
     if (status === 200) {
       yield put(item({ updateItem: data }));
       yield put(actions.success());
-      yield put(replace("/requests/update"));
+      yield put(replace(`/requests/update`));
     } else {
       yield put(actions.failure());
       console.log("Ошибка");

@@ -4,6 +4,7 @@ import * as actions from "./actions";
 const initialState = {
   loading: false,
   requestList: [],
+  statuses: [],
   error: false,
   updateItem: {}
 };

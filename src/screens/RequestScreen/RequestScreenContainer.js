@@ -4,7 +4,7 @@ import RequestScreen from "./RequestScreen";
 
 import {
   getRequestList,
-  getLoading
+  getLoading,
 } from "../../store/requestsScreen/selectors";
 
 import { getLocation } from "../../store/router/selectors";
