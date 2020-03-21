@@ -2,3 +2,13 @@ tbody > tr:hover {
   transition: 0.2s;
   background: rgba(26, 72, 118, 0.2);
 }
+
+.status {
+  display: block;
+  padding: 0.3rem;
+  border-radius: 40px;
+  text-align: center;
+  color: white;
+  width: 15rem;
+  margin: auto;
+}

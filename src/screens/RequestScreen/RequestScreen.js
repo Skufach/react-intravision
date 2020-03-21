@@ -29,6 +29,7 @@ const RequestScreen = ({
           <React.Fragment>
             {location === "/requests/create" ? null : (
               <Button
+                style={{ margin: 0 }}
                 onClick={() => replaceTrigger({ path: "/requests/create" })}
               >
                 Создать заявку

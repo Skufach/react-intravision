@@ -15,7 +15,14 @@ const RequestsPanel = ({ requestList, updateFormLoading }) => {
         <Table.Cell>{listItem.name}</Table.Cell>
         {window.location.pathname === "/requests" ? (
           <React.Fragment>
-            <Table.Cell>{listItem.statusName}</Table.Cell>
+            <Table.Cell>
+              <span
+                className="status"
+                style={{ background: `${listItem.statusRgb}` }}
+              >
+                {listItem.statusName}
+              </span>
+            </Table.Cell>
             <Table.Cell>{listItem.executorName}</Table.Cell>
           </React.Fragment>
         ) : null}
@@ -28,12 +35,12 @@ const RequestsPanel = ({ requestList, updateFormLoading }) => {
       <Table.Header>
         <Table.Row style={{ display: "flex" }}>
           <Table.HeaderCell
-            width={window.location.pathname === "/requests" ? 4 : 7}
+            width={window.location.pathname === "/requests" ? 4 : 8}
           >
             ID
           </Table.HeaderCell>
           <Table.HeaderCell
-            width={window.location.pathname === "/requests" ? 4 : 7}
+            width={window.location.pathname === "/requests" ? 4 : 8}
           >
             Название
           </Table.HeaderCell>
@@ -48,7 +55,8 @@ const RequestsPanel = ({ requestList, updateFormLoading }) => {
 
       <Table.Body
         style={{
-          height: "84vh",
+          height:
+            window.location.pathname === "/requests/create" ? "88vh" : "82.8vh",
           maxHeight: "100%",
           width: "100%",
           overflowY: "auto",
