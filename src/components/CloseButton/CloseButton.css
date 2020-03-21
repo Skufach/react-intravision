@@ -1,0 +1,13 @@
+.icon {
+    float: right;
+    margin-right: 10%;
+    font-size: 2rem;
+    text-align: center;
+    font-style: normal;
+    transition: 0.4s;
+  }
+  
+  .icon:hover {
+    background: #ecf3f7;
+    color: #1a4876;
+  }

@@ -1,2 +1,2 @@
 export const getStatus = state => state.form.formUpdate.values.status;
-export const getDescription = state => state.form.formUpdate.values.description;
+export const getExecutor = state => state.form.formUpdate.values.executor;

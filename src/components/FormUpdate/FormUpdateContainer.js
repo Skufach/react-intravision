@@ -5,9 +5,11 @@ import FormUpdate from "./FormUpdate";
 
 import {
   getUpdateItem,
-  getStatuses
+  getStatuses,
+  getUsers
 } from "../../store/requestsScreen/selectors";
-// import { trigger as formCreateTrigger } from "../../store/forms/createForm/actions";
+
+import { trigger as formUpdateTrigger } from "../../store/forms/updateForm/actions";
 
 import { getStatus } from "../../store/forms/updateForm/selectors";
 
@@ -16,14 +18,18 @@ const selectStatus = formValueSelector("formUpdate");
 const mapStateToProps = state => ({
   item: getUpdateItem(state),
   statuses: getStatuses(state),
+  users: getUsers(state),
   initialValues: {
     status: getUpdateItem(state).statusId,
-    description: getUpdateItem(state).description
+    executor: getUpdateItem(state).executorId
   },
   newStatus: selectStatus(state, "status")
 });
 
-const FormUpdateContainer = connect(mapStateToProps, { getStatus })(
+const FormUpdateContainer = connect(mapStateToProps, {
+  getStatus,
+  formUpdateTrigger
+})(
   reduxForm({
     form: "formUpdate",
     enableReinitialize: true

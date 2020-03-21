@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-import { Grid } from "semantic-ui-react";
+import { Grid, Button } from "semantic-ui-react";
 
 import FormCreateContainer from "../../components/FormCreate/FormCreateContainer";
 import FormUpdateContainer from "../../components/FormUpdate/FormUpdateContainer";
@@ -9,7 +9,13 @@ import RequestsPanel from "../../components/RequestsPanel/RequestsPanel";
 
 import { trigger } from "../../store/requestsScreen/actions";
 
-const RequestScreen = ({ requestList, loading, location, updateFormLoadingTrigger }) => {
+const RequestScreen = ({
+  requestList,
+  loading,
+  location,
+  updateFormLoadingTrigger,
+  replaceTrigger
+}) => {
   const dispatch = useDispatch();
 
   useEffect(() => dispatch({ type: `${trigger}` }), []);
@@ -20,7 +26,20 @@ const RequestScreen = ({ requestList, loading, location, updateFormLoadingTrigge
         {loading ? (
           <div>Загрузка...</div>
         ) : (
-          <RequestsPanel requestList={requestList} updateFormLoading={updateFormLoadingTrigger}/>
+          <React.Fragment>
+            {location === "/requests/create" ? null : (
+              <Button
+                onClick={() => replaceTrigger({ path: "/requests/create" })}
+              >
+                Создать заявку
+              </Button>
+            )}
+
+            <RequestsPanel
+              requestList={requestList}
+              updateFormLoading={updateFormLoadingTrigger}
+            />
+          </React.Fragment>
         )}
       </Grid.Column>
 

@@ -4,7 +4,12 @@ export const trigger = createAction("requestScreen->TRIGGER");
 export const start = createAction("requestScreen->START");
 export const success = createAction(
   "requestScreen->SUCCESS",
-  ({ loading, requestList, statuses }) => ({ loading, requestList, statuses })
+  ({ loading, requestList, statuses, users }) => ({
+    loading,
+    requestList,
+    statuses,
+    users
+  })
 );
 export const failure = createAction("requestScreen->FAILURE", ({ error }) => ({
   error

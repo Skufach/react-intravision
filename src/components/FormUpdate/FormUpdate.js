@@ -4,7 +4,15 @@ import { Header, Dropdown, Segment } from "semantic-ui-react";
 
 import "./FormUpdate.css";
 
-const FormUpdate = ({ item, statuses, newStatus }) => {
+import CloseButtonContainer from "../CloseButton/CloseButtonContainer";
+
+const FormUpdate = ({
+  item,
+  statuses,
+  newStatus,
+  users,
+  formUpdateTrigger
+}) => {
   console.log(item);
 
   const currentStatus = newStatus =>
@@ -21,15 +29,15 @@ const FormUpdate = ({ item, statuses, newStatus }) => {
 
   const color = rgbItem();
 
-  const StatusList = statuses => {
-    const statusesList = statuses.map((status, _index) => {
+  const DropdownList = items => {
+    const itemesList = items.map((item, _index) => {
       return {
-        key: status.id,
-        value: status.id,
-        text: status.name
+        key: item.id,
+        value: item.id,
+        text: item.name
       };
     });
-    return statusesList;
+    return itemesList;
   };
 
   const SelectField = props => {
@@ -38,7 +46,7 @@ const FormUpdate = ({ item, statuses, newStatus }) => {
       <Dropdown
         value={props.input.value}
         onChange={(event, data) => props.input.onChange(data.value)}
-        placeholder="Статус"
+        placeholder={props.placeholder}
         selection
         options={list}
       />
@@ -59,15 +67,28 @@ const FormUpdate = ({ item, statuses, newStatus }) => {
         }}
       >
         № {item.id}
+        <CloseButtonContainer />
       </Header>
       <Segment attached>{item.name}</Segment>
 
       <form className="ui form flex-container">
         <div className="block-left">
-          <div className="field ">
+          <div className="field">
             <label>Описание</label>
-            <Field name="description" component="textarea" />
+            <div>{item.description}</div>
           </div>
+
+          <button
+            type="submit"
+            className="ui button"
+            style={{ margin: "1rem" }}
+            onClick={event => {
+              event.preventDefault();
+              formUpdateTrigger();
+            }}
+          >
+            Сохранить
+          </button>
         </div>
 
         <div className="block-right">
@@ -76,26 +97,25 @@ const FormUpdate = ({ item, statuses, newStatus }) => {
             <Field
               name="status"
               component={SelectField}
-              options={StatusList(statuses)}
+              options={DropdownList(statuses)}
+              placeholder="Статус"
+            />
+          </div>
+          <div className="field">
+            <label>Заявитель</label>
+            <div>{item.initiatorName}</div>
+          </div>
+          <div className="field form-div">
+            <label>Исполнитель</label>
+            <Field
+              name="executor"
+              component={SelectField}
+              options={DropdownList(users)}
+              placeholder="Исполнитель"
             />
           </div>
         </div>
       </form>
-
-      {/* 
-
-        <button
-          type="submit"
-          className="ui button"
-          style={{ margin: "1rem" }}
-          onClick={event => {
-            event.preventDefault();
-            formCreateTrigger();
-          }}
-        >
-          Сохранить
-        </button>
-      </form> */}
     </React.Fragment>
   );
 };

@@ -1,6 +1,8 @@
 import React from "react";
 import { Table } from "semantic-ui-react";
 
+import "./RequestsPanel.css";
+
 const RequestsPanel = ({ requestList, updateFormLoading }) => {
   const handleClick = id => {
     updateFormLoading(id);
@@ -46,7 +48,7 @@ const RequestsPanel = ({ requestList, updateFormLoading }) => {
 
       <Table.Body
         style={{
-          height: "90vh",
+          height: "84vh",
           maxHeight: "100%",
           width: "100%",
           overflowY: "auto",

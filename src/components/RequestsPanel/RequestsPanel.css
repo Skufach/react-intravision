@@ -1,0 +1,4 @@
+tbody > tr:hover {
+  transition: 0.2s;
+  background: rgba(26, 72, 118, 0.2);
+}

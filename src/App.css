@@ -32,3 +32,23 @@ body {
 .field {
   margin: 1rem !important;
 }
+
+.field > .selection.dropdown {
+  width: auto !important;
+}
+
+.dropdown {
+  min-width: 9em !important;
+  transition: 0.4s !important;
+  border: none !important;
+  padding-left: 20% !important;
+}
+
+.dropdown:hover {
+  background: rgba(26, 72, 118, 0.2) !important ;
+  /* opacity: 0.5; */
+}
+
+.field > .selection.dropdown > .dropdown.icon {
+  display: none;
+}

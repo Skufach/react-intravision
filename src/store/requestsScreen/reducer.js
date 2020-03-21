@@ -6,7 +6,8 @@ const initialState = {
   requestList: [],
   statuses: [],
   error: false,
-  updateItem: {}
+  updateItem: {},
+  users: []
 };
 
 export const reducer = handleActions(

@@ -4,6 +4,8 @@ import { Header } from "semantic-ui-react";
 
 import "./FormCreate.css";
 
+import CloseButtonContainer from "../CloseButton/CloseButtonContainer";
+
 const FormCreate = ({ formCreateTrigger }) => {
   return (
     <React.Fragment>
@@ -18,8 +20,12 @@ const FormCreate = ({ formCreateTrigger }) => {
         }}
       >
         Новая заявка
+        <CloseButtonContainer />
       </Header>
-      <form className="ui form" style={{ background: "#ecf3f7", height: "100%" }}>
+      <form
+        className="ui form"
+        style={{ background: "#ecf3f7", height: "100%" }}
+      >
         <div className="field form_div" style={{ margin: "1rem" }}>
           <label>Название</label>
           <Field name="name" component="input" type="text" />
